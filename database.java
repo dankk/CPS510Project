@@ -410,6 +410,76 @@ public class database {
 		
 	}
 
+	//get doctor from patient id
+	public void patientDoctor() throws SQLException{
+
+		try{
+			Statement stmt = con.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT employee_id, physician.ename FROM patient, physician
+				WHERE patient.employee_id = physician.employee_id AND patient.patient_id = '" + patientID + "'");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	//get patient insurance number
+	public void patientInsurance() throws SQLException{
+
+		try{
+			Statement stmt = con.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT insurance_num from insurance
+				WHERE insurance.patient_id = '" + patientID + "'");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	//get patient prescription info
+	public void patientPrescription() throws SQLException{
+
+		try{
+			Statement stmt = con.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT prescription_num, employee_id from prescription
+				WHERE prescription.patient_id = '" + patientID + "'");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	public void commonIllness() throws SQLException{
+
+		try{
+			Statement stmt = con.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT type, count(type) FROM illness 
+				GROUP BY type ORDER BY count(type) DESC");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void commonRemedy() throws SQLException{
+
+		try{
+			Statement stmt = con.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT remedy_name, count(remedy_name) FROM remedy
+				GROUP BY remedy_name ORDER BY count(remedy_name) DESC");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	public static void main(String[] args) throws SQLException {
         new database();
     }
