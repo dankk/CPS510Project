@@ -40,7 +40,7 @@ public class database {
 	private ArrayList<String> names = new ArrayList<String>();
 	private Container c;
 	private String USER, PASSWORD;
-	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+	String url = "jdbc:oracle:thin:@oracle.scs.ryerson.ca:1521:orcl";
 	Connection con;
 
 	public database() throws SQLException{
