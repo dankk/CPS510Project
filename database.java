@@ -21,8 +21,9 @@ public class database {
 	    }
 	}
 	
-	private JFrame frame;
+	private JFrame frame, nFrame, logFrame;
 	private TextField tfName, tfId, tfbDay, tfSalary, tfSex, tfInsurance, empID;//, tfFluCount;
+	private TextField tfPid, tfPName, tfPBday, tfPsex, tfPEmp, tfPPres, tfUser, tfPass, patientIDtf ;
 	private TextArea taBox, patientTA, illnessTA;
 	
 	private JCheckBox cFluCount, cRemedyCount, cPatientPhysician, cAverageSalaryPhysician, cPhysicianAppointments;
@@ -48,9 +49,9 @@ public class database {
 	}
 	
 	private void logIn(){
-		JFrame logFrame = new JFrame("Log In");
-		TextField tfUser = new TextField(15);
-		TextField tfPass = new TextField(15);
+		logFrame = new JFrame("Log In");
+		tfUser = new TextField(15);
+		tfPass = new TextField(15);
 		Button bLogIn = new Button("Log In");
 		
 		logFrame.setSize(300,300);
@@ -227,7 +228,7 @@ public class database {
 		mainUI();
 		
 		Label patientIDlabel = new Label("Enter Patient ID");
-		TextField patientIDtf = new TextField(3);
+		patientIDtf = new TextField(3);
 		Button pInfo = new Button("Get Patient Info");
 		Button pNew = new Button("New Patient");
 		patientTA = new TextArea(20,30);
@@ -267,7 +268,7 @@ public class database {
 	
 	private void createPatient() throws ParseException{
 		
-		JFrame nFrame = new JFrame("Create Patient");
+		nFrame = new JFrame("Create Patient");
 		nFrame.setSize(750, 200);
 		nFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		nFrame.setLayout(new FlowLayout());
@@ -275,17 +276,17 @@ public class database {
 		
 		
 		Label lPid = new Label("Patient ID:");
-		TextField tfPid = new TextField(3);
+		tfPid = new TextField(3);
 		Label lPName = new Label("Patient Name:");
-		TextField tfPName = new TextField(20);
+		tfPName = new TextField(20);
 		Label lPBday = new Label("Birthday (yyyy/mm/dd):");
-		TextField tfPBday = new TextField(20);
+		tfPBday = new TextField(20);
 		Label lPsex = new Label("Sex:");
-		TextField tfPsex = new TextField(3);
+		tfPsex = new TextField(3);
 		Label lPEmp = new Label("Physician ID:");
-		TextField tfPEmp = new TextField(3);
+		tfPEmp = new TextField(3);
 		Label lPPres = new Label("Prescription Num:");
-		TextField tfPPres = new TextField(5);
+		tfPPres = new TextField(5);
 		Button updatePatient = new Button("Insert Patient");
 		
 		nFrame.add(lPid);
